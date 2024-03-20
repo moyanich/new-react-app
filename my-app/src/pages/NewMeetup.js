@@ -1,7 +1,8 @@
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
+import { useLocation } from "react-router-dom";
 
 function NewMeetupsPage() {
-
+    let history = useLocation();
    
     function onAddMeetupHandler(meetupData) {
         fetch(
@@ -13,7 +14,9 @@ function NewMeetupsPage() {
                     'Content-Type': 'application/json'
                 }   
             }
-        );
+        ).then(() => {
+            history.replace()
+        });
     }
 
 
